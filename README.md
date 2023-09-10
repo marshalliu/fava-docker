@@ -8,6 +8,7 @@ A Dockerfile for beancount-fava
 
 ## Usage Example
 
+planned to add smart_import and git-crypt into the docker
 ```bash
 # assume you have example.bean in the current directory
 docker run -v $PWD:/bean -e BEANCOUNT_FILE=/bean/example.bean yegle/fava
