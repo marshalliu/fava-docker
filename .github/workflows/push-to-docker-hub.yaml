@@ -8,12 +8,12 @@ name: Publish Docker image
 on:
   push:
     branches:
-      - 'master'
-      - 'devel'
-      - 'v*'
+      - "master"
+      - "devel"
+      - "v*"
   pull_request:
     branches:
-      - 'master'
+      - "master"
 
 jobs:
   push_to_registry:
@@ -43,6 +43,7 @@ jobs:
           images: grostim/fava-docker
           tags: |
             type=raw,value=latest,enabled={{is_default_branch}}
+            type=raw,value=${{ github.run_number }},enabled={{is_default_branch}}
             type=ref,event=branch,enabled={{!is_default_branch}}
             type=ref,event=pr
 
