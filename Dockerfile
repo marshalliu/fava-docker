@@ -1,4 +1,4 @@
-FROM debian:bullseye as build_env
+FROM debian:bookworm as build_env
 ARG BEANCOUNT_VERSION
 
 RUN apt-get update
@@ -15,7 +15,7 @@ RUN find /app -name __pycache__ -exec rm -rf -v {} +
 
 #Distroless is too limited for my use.
 # I use Python
-FROM python:3.13.6-bullseye
+FROM python:3.13.6-bookworm
 COPY --from=build_env /app /app
 RUN apt-get update
 RUN apt-get install -y git nano poppler-utils wget
